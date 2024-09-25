@@ -34,7 +34,7 @@ You will receive two emails:
   - one to validate your email, follow the procedure
  
 
-## How to start? (180 seconds turorial)
+## How to start? (180 seconds tutorial)
 
 
 ### Connection to the cluster (if needed)
@@ -60,7 +60,6 @@ chandler
 oarstat -u cougoulg
 ```
 
-```
 
 ### Conda environment
 
