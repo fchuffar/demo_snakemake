@@ -87,4 +87,4 @@ echo $RCODE | Rscript - 2>&1 > {output.rout}
 
 rule clean:
   threads: 1
-  shell:"rm -Rf *.txt *.rds *.Rout *.html .snakemake"
+  shell:"rm -Rf *.txt *.rds *.Rout *.html tmp_* .snakemake"

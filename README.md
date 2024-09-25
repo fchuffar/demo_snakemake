@@ -37,7 +37,7 @@ You will receive two emails:
 ## How to start? (180 seconds tutorial)
 
 
-### Connection to the cluster (if needed)
+### Connection to the cluster and job submission
 
 ciment_infrastructure (Figure)
 
@@ -86,21 +86,26 @@ cd demo_snakemake
 
 ### Launch your first workflow
 
+On a worker node:
+
 ```
 snakemake clean -s 01st_workflow.py --cores 1 -rp
 snakemake -s 01st_workflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
+```
 
+From frontend on many worker nodes:
+
+```
 snakemake clean -s 01st_workflow.py --cores 1 -rp
 snakemake -s 01st_workflow.py --jobs 50 --cluster "oarsub --project groupecalcul -l nodes=1/core=1,walltime=00:03:00"  --latency-wait 60 -pn
-
 ```
 
 Ex: 
 
   - Reproduice the *180 seconds tutorial* section.
-  - Enhance the *180 seconds tutorial* by adjusting snakemake `cores` argument and `threads` rule parameter. 
+  - Enhance the *180 seconds tutorial* by adjusting snakemake `cores` argument and `threads` rule parameter, increasing the number of jobs... 
   - Comment.
   
 
@@ -138,13 +143,10 @@ seeds = ["rep1", "rep2", "rep3"]
 Launch it:
 
 ```
-
 # mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
 snakemake -s 02nd_worflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
 smgantt
-
-
 ```
 
 
