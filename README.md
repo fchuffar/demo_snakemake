@@ -12,14 +12,12 @@ i) Introducing `snakemake` using these supports:
     - https://www.slideshare.net/slideshow/introduction-to-snakemake/83052693
     - https://moodle.france-bioinformatique.fr/pluginfile.php/346/course/section/47/13_tutoriel_snakemake.html#/
 
-ii) Introducing the CIMENT/GRICAD infrastructure using https://github.com/fchuffar/practicle_sessions/blob/master/ciment_infrastructure/ciment_infrastructure.odp
+ii) Introducing the CIMENT/GRICAD infrastructure
 
 iii) Put the concepts we've learned into practice through a few use cases.
 
 
-## How to start?
-
-### Create an account to access to the cluster
+## Create an account to access to the cluster
 
 Open a PERSEUS account by clicking on the following link:  
 
@@ -36,7 +34,13 @@ You will receive two emails:
   - one to validate your email, follow the procedure
  
 
+## How to start? (180 seconds turorial)
+
+
 ### Connection to the cluster (if needed)
+
+Figure  https://github.com/fchuffar/practicle_sessions/blob/master/ciment_infrastructure/ciment_infrastructure.odp
+
 
 Once your account has become active, log in to the cluster frontend as follows:
 
@@ -48,22 +52,29 @@ ssh -o ProxyCommand="ssh ${username}@access-gricad.univ-grenoble-alpes.fr -W %h:
 Then, submit an interactive (`-I`) job of 4 cores:
 
 ```
-oarsub --project groupecalcul -C 26054906 -l nodes=1/core=4,walltime=1:00:00  -I
+oarsub --project groupecalcul -l nodes=1/core=2,walltime=00:03:00 -t fat -I
+oarsub --project groupecalcul -t inner=26054906 -l nodes=1/core=8,walltime=00:30:00 -I # mercr.
+oarsub --project groupecalcul -t inner=26054914 -l nodes=1/core=8,walltime=00:30:00 -I # jeud.
+oarsub --project groupecalcul -t inner=26054926 -l nodes=1/core=8,walltime=00:30:00 -I # vendr.
+chandler
+oarstat -u cougoulg
 ```
 
 ```
 
-### Conda environement
+### Conda environment
 
-Set up your conda environement as follow:
+Set up your conda environment as follow:
 
 ```
 source /home/chuffarf/conda_config.sh
 # conda create -n demosnakemake_env
 conda activate demosnakemake_env
-# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python-kaleido tenacity plotly
+# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python-kaleido tenacity plotly graphviz
 # pip install smgantt==0.0.5
 ```
+
+Ex: Set your own conda environment 
 
 ### Set up your working directory
 
@@ -77,7 +88,8 @@ cd demo_snakemake
 ### Launch your first workflow
 
 ```
-snakemake --cores 4 -s 01st_workflow.py -pn
+snakemake clean -s 01st_workflow.py --cores 1 -rp
+snakemake -s 01st_workflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
 ```
