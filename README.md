@@ -45,8 +45,8 @@ ciment_infrastructure (Figure)
 Once your account has become active, log in to the cluster frontend as follows:
 
 ```
-username=chuffarf
-ssh -o ProxyCommand="ssh ${username}@access-gricad.univ-grenoble-alpes.fr -W %h:%p" dahu.univ-grenoble-alpes.fr
+username=fchdemo
+ssh -o ProxyCommand="ssh ${username}@access-gricad.univ-grenoble-alpes.fr -W %h:%p" ${username}@dahu.univ-grenoble-alpes.fr
 ```
 
 Then, submit an interactive (`-I`) job of 4 cores:
@@ -91,6 +91,10 @@ snakemake clean -s 01st_workflow.py --cores 1 -rp
 snakemake -s 01st_workflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
+
+snakemake clean -s 01st_workflow.py --cores 1 -rp
+snakemake -s 01st_workflow.py --jobs 50 --cluster "oarsub --project groupcalcul -l nodes=1/core=1,walltime=00:03:00"  --latency-wait 60 -pn
+
 ```
 
 Ex: 

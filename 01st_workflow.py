@@ -10,7 +10,7 @@ echo "Tout est accompli."
 
 rule clean:
   threads: 1
-  shell:"rm -Rf sim_results_*.txt"
+  shell:"rm -Rf *.txt"
 
 rule run_simulation:
   output:"sim_results_{id}.txt",

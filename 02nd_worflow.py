@@ -74,8 +74,8 @@ rule mediation_analysis_lm:
     threads: 1
     shell:"""
 export OMP_NUM_THREADS=1
-# source /home/chuffarf/conda_config.sh
-# conda activate demosnakemake_env
+source /home/chuffarf/conda_config.sh
+conda activate demosnakemake_env
 
 cd {wildcards.prefix}
 
