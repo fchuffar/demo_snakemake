@@ -69,7 +69,7 @@ Set up your conda environment as follow:
 source /home/chuffarf/conda_config.sh
 # conda create -n demosnakemake_env
 conda activate demosnakemake_env
-# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python-kaleido tenacity plotly graphviz r-rmarkdown
+# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python=3.9 python-kaleido tenacity plotly graphviz
 # pip install smgantt==0.0.5
 ```
 
@@ -138,6 +138,8 @@ seeds = ["rep1", "rep2", "rep3"]
 Launch it:
 
 ```
+
+# mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
 snakemake -s 02nd_worflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
 smgantt
