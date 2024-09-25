@@ -77,6 +77,19 @@ for (Y in c("simuexectime", "fitmedexectime", "effect1", "effect2", "effect3", "
 
 
 
+# Plot 2
+
+```{r echo=FALSE}
+infos$grp = infos$col
+layout(matrix(1:3, 1, byrow=TRUE), respect=TRUE)
+for (Y in c("acme", "ade", "total_effect")) {
+  for (X in c("grp")) {
+    frm = formula(paste0(Y, "~", X))
+    plot(frm, infos, main=frm, col=1:length(levels(infos$grp)))
+  }
+}  
+```
+
 # Session Information
 
 ```{r}
