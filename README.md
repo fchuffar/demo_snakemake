@@ -39,7 +39,7 @@ You will receive two emails:
 
 ### Connection to the cluster (if needed)
 
-Figure  https://github.com/fchuffar/practicle_sessions/blob/master/ciment_infrastructure/ciment_infrastructure.odp
+ciment_infrastructure (Figure)
 
 
 Once your account has become active, log in to the cluster frontend as follows:
@@ -70,7 +70,7 @@ Set up your conda environment as follow:
 source /home/chuffarf/conda_config.sh
 # conda create -n demosnakemake_env
 conda activate demosnakemake_env
-# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python-kaleido tenacity plotly graphviz
+# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python-kaleido tenacity plotly graphviz r-rmarkdown
 # pip install smgantt==0.0.5
 ```
 
@@ -94,7 +94,54 @@ snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
 ```
 
-play with the core argument and the threads parameter of the workflow and observe behaviour
+Ex: 
+
+  - Reproduice the *180 seconds tutorial* section.
+  - Enhance the *180 seconds tutorial* by adjusting snakemake `cores` argument and `threads` rule parameter. 
+  - Comment.
+  
 
 
-### Launch your second workflow
+
+
+
+### `02nd_worflow.py`
+
+Extracts:
+
+```
+# DO NOT EXECUTE
+localrules: target
+
+import os 
+import os.path
+prefix = os.getcwd()
+
+# simulator parameters
+ncells  = ["100000"]
+ncells  = ["1000"]
+mis = "1"
+sijs = ["100"] 
+ds = ["1.0"]
+fs = ["50"]
+lambs = ["1.0"]
+
+# parameter sweep
+gamma1s = ["0", "1"]
+gamma2s = ["0", "500"]
+seeds = ["rep1", "rep2", "rep3"]
+```
+
+Launch it:
+
+```
+snakemake -s 02nd_worflow.py --cores 2 -rpn
+snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
+smgantt
+
+
+```
+
+
+### 
+
