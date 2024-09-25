@@ -93,7 +93,7 @@ snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
 
 snakemake clean -s 01st_workflow.py --cores 1 -rp
-snakemake -s 01st_workflow.py --jobs 50 --cluster "oarsub --project groupcalcul -l nodes=1/core=1,walltime=00:03:00"  --latency-wait 60 -pn
+snakemake -s 01st_workflow.py --jobs 50 --cluster "oarsub --project groupecalcul -l nodes=1/core=1,walltime=00:03:00"  --latency-wait 60 -pn
 
 ```
 

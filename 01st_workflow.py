@@ -4,6 +4,7 @@ rule target:
     "sim_results_01.txt",
     "sim_results_02.txt",
     "sim_results_03.txt",
+    # [f"sim_results_{id}.txt" for id in range(100)]
   shell:"""
 echo "Tout est accompli." 
 """
