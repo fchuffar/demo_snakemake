@@ -61,7 +61,7 @@ oarstat -u cougoulg
 ```
 
 
-### Conda environment
+### Conda environment and working directory
 
 Set up your conda environment as follow:
 
@@ -73,9 +73,9 @@ conda activate demosnakemake_env
 # pip install smgantt==0.0.5
 ```
 
-Ex: Set your own conda environment 
+Ex: Set your own conda environment.
 
-### Set up your working directory
+Set up your working directory
 
 ```
 # Retrieve script and material from github
@@ -104,7 +104,7 @@ Ex:
 
 
 
-### `02nd_worflow.py`
+## Demo 2 (`02nd_worflow.py`)
 
 Extracts:
 
