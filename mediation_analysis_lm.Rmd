@@ -35,7 +35,7 @@ infos = list()
 
 ```{r simu}
 simuexectime_filename = paste0("exectime_", suffix, ".rds")
-if (!file.exists(simuexectime_filename)) {
+if (!file.exists(simusres_filename)) {
   params_filename = paste0("params_", suffix, ".txt")
   cat(paste0("ncell=", ncell, "     \n"), file=params_filename)
   cat(paste0("i = ", i, "           \n"), file=params_filename, append=TRUE)
@@ -60,7 +60,7 @@ infos$simuexectime = readRDS(simuexectime_filename)
 if (!file.exists(simusres_filename)) {stop(paste0("no file ", simusres_filename, " produced."))}
 ```
 
-## Simulation execution stistics
+## Simulation execution stastics
 
   - execution time time
   - nb event per simulation

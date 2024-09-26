@@ -117,8 +117,6 @@ Ex:
 ```
 # mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
 snakemake -s 02nd_worflow.py --cores 2 -rpn
-snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
-smgantt
 ```
 
 
