@@ -8,9 +8,9 @@ The objectives are:
 
 i) Introducing `snakemake` using these supports:
 
-    - https://slides.com/johanneskoester/deck-1
-    - https://www.slideshare.net/slideshow/introduction-to-snakemake/83052693
-    - https://moodle.france-bioinformatique.fr/pluginfile.php/346/course/section/47/13_tutoriel_snakemake.html#/
+- https://slides.com/johanneskoester/deck-1
+- https://www.slideshare.net/slideshow/introduction-to-snakemake/83052693
+- https://moodle.france-bioinformatique.fr/pluginfile.php/346/course/section/47/13_tutoriel_snakemake.html#/
 
 ii) Introducing the CIMENT/GRICAD infrastructure
 
