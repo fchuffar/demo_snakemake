@@ -32,8 +32,8 @@ Open a PERSEUS account by clicking on the following link:
  
 You will receive two emails: 
 
-  - one to join a project, choose the appropriate project
-  - one to validate your email, follow the procedure
+  - one to join a project, choose the appropriate project,
+  - one to validate your email, follow the procedure.
  
 
 ## How to start? (180 seconds tutorial)
