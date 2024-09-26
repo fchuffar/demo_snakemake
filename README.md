@@ -72,7 +72,7 @@ conda activate demosnakemake_env
 # pip install smgantt==0.0.5
 ```
 
-Ex: Set your own conda environment.
+Exercice: Set your own conda environment on your laptop (if needed).
 
 Set up your working directory
 
