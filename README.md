@@ -24,11 +24,11 @@ ciment_infrastructure.pdf (Figure)
 Open a PERSEUS account by clicking on the following link:  
 
   - https://perseus.univ-grenoble-alpes.fr/create-account/form
-  - Choose a login following the recommendations
-  - Use an institutional email address
-  - Choose “formations” as your laboratory
-  - Choose your contract and select a suitable end date
-  - Choose a password
+  - Choose a login following the recommendations.
+  - Use an institutional email address.
+  - Choose “formations” as your laboratory.
+  - Choose your contract and select a suitable end date.
+  - Choose a password.
  
 You will receive two emails: 
 
