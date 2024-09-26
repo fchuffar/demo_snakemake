@@ -112,7 +112,7 @@ Exercice:
 
 
 
-## Demo 2 (`02nd_worflow.py`)
+## Demo (`02nd_worflow.py`)
 
 ```
 # mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
