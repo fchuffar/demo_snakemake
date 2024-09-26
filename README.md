@@ -85,7 +85,7 @@ cd demo_snakemake
 
 ### Launch your first workflow
 
-On a worker node:
+On a worker node or on your laptop:
 
 ```
 snakemake clean -s 01st_workflow.py --cores 1 -rp
