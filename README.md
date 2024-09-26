@@ -101,10 +101,10 @@ snakemake clean -s 01st_workflow.py --cores 1 -rp
 snakemake -s 01st_workflow.py --jobs 50 --cluster "oarsub --project groupecalcul -l nodes=1/core=1,walltime=00:03:00"  --latency-wait 60 -pn
 ```
 
-Ex: 
+Exercice: 
 
   - Reproduice the *180 seconds tutorial* section.
-  - Enhance the *180 seconds tutorial* by adjusting snakemake `cores` argument and `threads` rule parameter, increasing the number of jobs... 
+  - Enhance the *180 seconds tutorial* by adjusting snakemake `cores` argument and `threads` rule parameter, increasing the number of jobs, their duration... 
   - Comment.
   
 
