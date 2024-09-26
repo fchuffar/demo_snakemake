@@ -6,7 +6,7 @@ A set of scripts to illustrate the use of snakemake
 
 The objectives are:
 
-i) Introducing `snakemake` using these supports:
+i) Introducing `snakemake` using the first support:
 
 - https://slides.com/johanneskoester/deck-1
 - https://www.slideshare.net/slideshow/introduction-to-snakemake/83052693
