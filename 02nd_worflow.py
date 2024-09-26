@@ -4,13 +4,14 @@
 #     "sim_results_01.txt",
 #     "sim_results_02.txt",
 #     "sim_results_03.txt",
+#     # [f"sim_results_{id}.txt" for id in range(40)]
 #   shell:"""
 # echo "Tout est accompli." 
 # """
 
 # rule clean:
 #   threads: 1
-#   shell:"rm -Rf sim_results_*.txt"
+#   shell:"rm -Rf *.txt"
 
 # rule run_simulation:
 #   output:"sim_results_{id}.txt",
@@ -31,22 +32,22 @@ prefix = os.getcwd()
 
 # simulator parameters
 
-ncells  = ["100000"]
-ncells  = ["100"]
-mis = "1"
-sijs = ["100"] 
-ds = ["1.0"]
-fs = ["50"]
-lambs = ["1.0"]
+ncells = ["100000"]
+ncells = ["500"]
+ncells = ["100"]
+mis    = ["1"]
+sijs   = ["100"] 
+ds     = ["1"]
+fs     = ["50"]
+lambs  = ["1"]
 
 gamma1s = ["0", "1"]
 gamma2s = ["0", "500"]
-seeds = ["0", "1", "2"]
-# seeds = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+seeds   = ["0", "1", "2"]
+# seeds = [f"{seed}" for seed in range(8)]
 
 htmls = [f"{prefix}/mediation_analysis_lm_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.html" for ncell in ncells for i in mis for sij in sijs for gamma1 in gamma1s for gamma2 in gamma2s for d in ds for f in fs for lamb in lambs for seed in seeds]
 
-print(htmls)
  
 rule target:
   threads: 1
@@ -56,6 +57,8 @@ rule target:
   shell:"""
 RCODE="rmarkdown::render('metaanalysis.Rmd')"
 echo $RCODE | Rscript -
+snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
+smgantt
 echo "done." 
 """
 
@@ -65,12 +68,12 @@ rule mediation_analysis_lm:
       rmd = "{prefix}/mediation_analysis_lm.Rmd",
       par = "{prefix}/params.R",
     output:
-      html     = "{prefix}/mediation_analysis_lm_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.html"    ,
-      rout     = "{prefix}/mediation_analysis_lm_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.Rout"    ,
-      sres    = "{prefix}/sim_res_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.txt",
-      infos    = "{prefix}/infos_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
-      exec    = "{prefix}/exectime_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
-      fit    = "{prefix}/fitmed_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
+      html  = "{prefix}/mediation_analysis_lm_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.html"    ,
+      rout  = "{prefix}/mediation_analysis_lm_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.Rout"    ,
+      sres  = "{prefix}/sim_res_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.txt",
+      infos = "{prefix}/infos_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
+      exec  = "{prefix}/exectime_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
+      fit   = "{prefix}/fitmed_{ncell}_{i}_{sij}_{gamma1}_{gamma2}_{d}_{f}_{lamb}_rep{seed}.rds",
     threads: 1
     shell:"""
 export OMP_NUM_THREADS=1

@@ -19,6 +19,8 @@ iii) Put the concepts we've learned into practice through a few use cases.
 
 ## Create an account to access to the cluster
 
+ciment_infrastructure.pdf (Figure)
+
 Open a PERSEUS account by clicking on the following link:  
 
   - https://perseus.univ-grenoble-alpes.fr/create-account/form
@@ -38,9 +40,6 @@ You will receive two emails:
 
 
 ### Connection to the cluster and job submission
-
-ciment_infrastructure (Figure)
-
 
 Once your account has become active, log in to the cluster frontend as follows:
 
@@ -69,7 +68,7 @@ Set up your conda environment as follow:
 source /home/chuffarf/conda_config.sh
 # conda create -n demosnakemake_env
 conda activate demosnakemake_env
-# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python=3.9 python-kaleido tenacity plotly graphviz
+# mamba install -c anaconda -c bioconda -c conda-forge -c r r-base snakemake=7.32.4 python=3.9 graphviz python-kaleido tenacity plotly 
 # pip install smgantt==0.0.5
 ```
 
@@ -114,33 +113,6 @@ Ex:
 
 
 ## Demo 2 (`02nd_worflow.py`)
-
-Extracts:
-
-```
-# DO NOT EXECUTE
-localrules: target
-
-import os 
-import os.path
-prefix = os.getcwd()
-
-# simulator parameters
-ncells  = ["100000"]
-ncells  = ["1000"]
-mis = "1"
-sijs = ["100"] 
-ds = ["1.0"]
-fs = ["50"]
-lambs = ["1.0"]
-
-# parameter sweep
-gamma1s = ["0", "1"]
-gamma2s = ["0", "500"]
-seeds = ["rep1", "rep2", "rep3"]
-```
-
-Launch it:
 
 ```
 # mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
