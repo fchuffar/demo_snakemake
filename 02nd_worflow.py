@@ -49,6 +49,10 @@ rule target:
   input:
     htmls
   shell:"""
+export OMP_NUM_THREADS=1
+source /home/chuffarf/conda_config.sh
+conda activate demosnakemake_env
+
 RCODE="rmarkdown::render('metaanalysis.Rmd')"
 echo $RCODE | Rscript -
 snakemake --forceall --dag -s 02nd_worflow.py| dot -Tpdf > dag.pdf
