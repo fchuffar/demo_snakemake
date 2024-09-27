@@ -21,7 +21,7 @@
 # echo $HOSTNAME > {output}
 # """
 
-localrules: target clean
+localrules: target, clean
 
 import os 
 import os.path
