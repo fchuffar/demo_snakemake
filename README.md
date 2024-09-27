@@ -117,6 +117,7 @@ Exercice:
 ```
 # mamba install -c anaconda -c bioconda -c conda-forge -c r -c brown-data-science r-rmarkdown r-mediation 
 snakemake -s 02nd_worflow.py --cores 16 -rpn
+snakemake -s 02nd_worflow.py --jobs 50 --cluster "oarsub --project groupecalcul -l nodes=1/core=1,walltime=00:10:00"  --latency-wait 60 -pn
 ```
 
 
