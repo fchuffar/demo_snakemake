@@ -88,7 +88,7 @@ cd demo_snakemake
 On a worker node or on your laptop:
 
 ```
-snakemake clean -s 01st_workflow.py --cores 1 -rp
+snakemake -s 01st_workflow.py --cores 1 -rp clean
 snakemake -s 01st_workflow.py --cores 2 -rpn
 snakemake --forceall --dag -s 01st_workflow.py| dot -Tpdf > dag.pdf
 smgantt
