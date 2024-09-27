@@ -21,4 +21,4 @@ sleep 3
 echo $HOSTNAME > {output}
 """
 
-localrules: target
+localrules: target clean
