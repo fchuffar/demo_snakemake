@@ -54,7 +54,7 @@ Then, submit an interactive (`-I`) job of 4 cores:
 oarsub --project groupecalcul -l nodes=1/core=2,walltime=00:03:00 -t fat -I
 oarsub --project groupecalcul -t inner=26054906 -l nodes=1/core=8,walltime=00:30:00 -I # mercr.
 oarsub --project groupecalcul -t inner=26054914 -l nodes=1/core=8,walltime=00:30:00 -I # jeud.
-oarsub --project groupecalcul -t inner=26054926 -l nodes=1/core=8,walltime=00:30:00 -I # vendr.
+oarsub --project groupecalcul -t inner=26054926 -l nodes=1/core=4,walltime=04:00:00 -I # vendr.
 chandler
 oarstat -u cougoulg
 ```
